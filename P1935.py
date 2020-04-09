@@ -8,11 +8,11 @@ CAL = {
 }
 
 if __name__ == '__main__':
-    no_operand = int(input())  # 피연산자 갯수
+    no_operand = int(input())  # 피연산자 개수
     expression = [x for x in input()]  # 표기식
     expression_value = []
 
-    # 피연산자 갯수만큼 입력
+    # 피연산자 개수만큼 입력
     for op_idx in range(no_operand):
         expression_value.append(int(input()))
 
