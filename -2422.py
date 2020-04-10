@@ -1,4 +1,9 @@
-F = lambda n: 1 if n <= 1 else n * F(n - 1)
+def F(n):
+    fact = 1
+    for num in range(2, n + 1):
+        fact *= num
+    return fact
+
 
 if __name__ == '__main__':
     input_val = input().split(' ')
@@ -32,4 +37,4 @@ if __name__ == '__main__':
                 duplicate_list.append(dup_element)
                 duplicate_cnt += 1
 
-    print(int((F(no_ice_species) / (F(no_ice_species - 3) * F(3))) - duplicate_cnt))
+    print(int(no_ice_species * (no_ice_species - 1) * (no_ice_species - 2) / 6 - duplicate_cnt))
