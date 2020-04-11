@@ -23,7 +23,7 @@ if __name__ == '__main__':
         pizza["full"] += min_cnt
 
     # 1/2 * 2
-    if pizza["1/2"] >= 2:
+    if pizza["1/2"] // 2:
         min_cnt = pizza["1/2"] // 2
         pizza["1/2"] -= min_cnt * 2
 
@@ -43,5 +43,17 @@ if __name__ == '__main__':
         pizza["1/4"] -= min_cnt * 4
 
         pizza["full"] += min_cnt
+
+    # 남은 조각 모으기
+    if pizza["1/2"] and pizza["1/4"]:
+        pizza["1/2"] -= 1
+        pizza["1/4"] -= 1
+
+        pizza["full"] += 1
+
+    if pizza["1/4"] > 1:
+        pizza["1/4"] = 0
+
+        pizza["full"] += 1
 
     print(pizza["1/2"] + pizza["1/4"] + pizza["3/4"] + pizza["full"])
