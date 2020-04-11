@@ -1,1 +1,1 @@
-print("%o" % int(input(), 2))
+print("%o"%int(input(),2))

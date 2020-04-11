@@ -1,15 +1,9 @@
-def F(n):
-    fact = 1
-    for num in range(2, n + 1):
-        fact *= num
-    return fact
-
-
 if __name__ == '__main__':
     input_val = input().split(' ')
     no_ice_species, no_ex = int(input_val[0]), int(input_val[1])
 
-    duplicate_list = []
+    duplicate_list = [[[0 for k in range(no_ice_species + 1)] for j in range(no_ice_species + 1)] for i in range(no_ice_species + 1)]
+
     duplicate_cnt = 0
 
     for _ in range(no_ex):
@@ -29,12 +23,10 @@ if __name__ == '__main__':
             if x > y:
                 x, y = y, x
 
-            dup_element = (x * 1000000) + (y * 1000) + z
-
-            if dup_element in duplicate_list:
+            if duplicate_list[x][y][z] == 1:
                 continue
             else:
-                duplicate_list.append(dup_element)
+                duplicate_list[x][y][z] = 1
                 duplicate_cnt += 1
 
     print(int(no_ice_species * (no_ice_species - 1) * (no_ice_species - 2) / 6 - duplicate_cnt))
